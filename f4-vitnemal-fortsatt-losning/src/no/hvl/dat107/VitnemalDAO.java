@@ -80,12 +80,10 @@ public class VitnemalDAO {
         try {
         	tx.begin();
         	
-        	// Vi begynner med å hente evt. gammel karakter i aktuelt emne. 
-        	// -> Detatched
+        	// Vi begynner med å hente evt. gammel karakter i aktuelt emne. -> Detatched
         	Karakter gmlK = hentKarakterForStudentIEmne(studNr, emnekode); 
         	
-        	// Vi henter også vitnemålet for aktuell student.
-        	// -> Managed
+        	// Vi henter også vitnemålet for aktuell student. -> Managed
         	Vitnemal v = em.find(Vitnemal.class, studNr);
         	
         	// Hvis gammel karakter finnes, så fjerner vi den før vi gjør noe mer.
@@ -99,8 +97,7 @@ public class VitnemalDAO {
         					// før vi setter inn ny rad (pga. unique-constraint).
         	}
         	
-        	// Da gjenstår å sette inn den nye karakteren
-        	// -> New
+        	// Da gjenstår å sette inn den nye karakteren. -> New
         	Karakter nyK = new Karakter(emnekode, eksDato, bokstav, v);
         	
         	// Lagring -> Managed
