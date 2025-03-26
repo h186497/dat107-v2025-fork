@@ -15,7 +15,7 @@ public class Main1_FindById {
 
     public static void main(String[] args) {
     	
-        Person p = finnPersonMedId(1001);
+        Person p = finnPersonMedId(1005);
         System.out.println(p);
     }
 
